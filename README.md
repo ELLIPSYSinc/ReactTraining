@@ -16,7 +16,7 @@
 
 # React App起動
 - `frontend`のディレクトリで`yarn`を実行すると`frontend/package.json`の情報をもとに必要なパッケージがコンテナ内にインストールされる
-- `yarn start`でReact Appが起動してブラウザ上で`http://localhost:3000`が勝手に開く
+- `yarn start`を実行するとReact Appが起動してブラウザ上で`http://localhost:3000`が勝手に開く
 ```
 cd frontend
 yarn
