@@ -29,7 +29,8 @@ yarn start
 https://ja.reactjs.org/tutorial/tutorial.html
 - 代わりに`React hooks` (関数コンポーネント)を使う  
 https://ja.reactjs.org/docs/hooks-intro.html
-- 上記の例を`App.tsx`に組み込む場合は下記のように書き換える
+- 下記URLの例を`App.tsx`に組み込む場合は下記のように書き換える  
+https://ja.reactjs.org/docs/hooks-overview.html#state-hook
 ```
 import React, { useState } from 'react';
 
