@@ -55,13 +55,12 @@ function Example() {
 
 export default App;
 ```
-- この環境では`TypeScript`を用いている
-- TypeScriptについての詳細は下記のサイトが参考になる  
+- この環境では`TypeScript`を用いている    
 https://typescript-jp.gitbook.io/deep-dive/
-- JavaScriptに型を導入することでバグを抑制するだけでなく、VS Codeの自動補完によって生産性を向上させることができる
-- `yarn start`での実行時にJavaScriptに変換(トランスコンパイル)される
-- コンパイル時にJavaScriptのバージョンの違いを吸収してくれるので実行環境の違いなどをほとんど考慮しなくてよい
-- 型はコンパイル時の型チェックに用いられるだけなので、コンパイル後のJavaScriptのプログラム動作には全く影響しない
+- `JavaScript`に型を導入することでバグを抑制するだけでなく、VS Codeの自動補完によって生産性を向上させることができる
+- `yarn start`での実行時に`JavaScript`に変換(トランスコンパイル)される
+- コンパイル時に`JavaScript`のバージョンの違いを吸収してくれるので実行環境の違いなどをほとんど考慮しなくてよい
+- 型はコンパイル時の型チェックに用いられるだけなので、コンパイル後の`JavaScript`のプログラム動作には全く影響しない
 - 型についてよくわからない場合はすべて`any`にしておけば`JavaScript`と全く同じようにコードを書くことができる  
 https://typescriptbook.jp/reference/values-types-variables/any
 
