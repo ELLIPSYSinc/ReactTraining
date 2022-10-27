@@ -27,7 +27,7 @@ yarn start
 - `frontend/src/App.tsx`の中を変更するとページを書き換えられる
 - 下記はReact公式のTutorialであるがこの中のクラスコンポーネントは現在はあまり使われないので無視  
 https://ja.reactjs.org/tutorial/tutorial.html
-- 代わりにReact hooks (関数コンポーネント)を使う  
+- 代わりに`React hooks` (関数コンポーネント)を使う  
 https://ja.reactjs.org/docs/hooks-intro.html
 - 上記の例を`App.tsx`に組み込む場合は下記のように書き換える
 ```
@@ -66,7 +66,7 @@ https://typescriptbook.jp/reference/values-types-variables/any
 
 
 # Pythonの実行
-- backendディレクトリのmain.pyを実行すると`hello world`と表示される
+- `backend`ディレクトリの`main.py`を実行すると`hello world`と表示される
 ```
 cd backend
 python main.py
