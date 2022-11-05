@@ -67,13 +67,20 @@ https://typescriptbook.jp/reference/values-types-variables/any
 
 
 # Pythonの実行
-- `backend`ディレクトリの`main.py`を実行すると`hello world`と表示される
+- `backend`ディレクトリの`main.py`を実行すると`FastAPI`のサンプルコードが実行される
+https://fastapi.tiangolo.com/ja/#_4
 ```
 cd backend
 python main.py
 ```
 ### 実行結果
 ```
+vscode ➜ /workspace (main) $ cd backend/
 vscode ➜ /workspace/backend (main ✗) $ python main.py 
-hello world
+INFO:     Will watch for changes in these directories: ['/workspace/backend']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [1655] using WatchFiles
+INFO:     Started server process [1657]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
 ```
