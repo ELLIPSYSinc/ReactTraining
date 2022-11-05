@@ -84,3 +84,7 @@ INFO:     Started server process [1657]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 ```
+- `localhost:8000`を開くと`hello word`と表示される
+![Image 6](images/6.png)
+- `localhost:8000/docs`を開くと`OpenAPI (Swagger)`が表示される
+![Image 7](images/7.png)
