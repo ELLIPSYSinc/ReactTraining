@@ -2,7 +2,9 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/python
 {
 	"name": "React Training",
-	"image": "mcr.microsoft.com/devcontainers/python:3.11",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspace",
 	"features": {
 		"ghcr.io/devcontainers/features/node:1": {}
 	},
