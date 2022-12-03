@@ -7,5 +7,5 @@ cd examples/sql_app
 uvicorn app.main:app --reload
 ```
 
-# How to Access OpenAPI (Browser)
+# How to Access OpenAPI (Swagger)
 - Access http://localhost:8000/docs after starting the server.
