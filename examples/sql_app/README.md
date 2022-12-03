@@ -4,7 +4,7 @@ This example based on https://fastapi.tiangolo.com/ja/tutorial/sql-databases/
 # How to Run
 ```
 cd examples/sql_app
-uvicorn app.main:app --reload
+python main.py
 ```
 
 # How to Access OpenAPI (Swagger)
