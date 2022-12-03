@@ -10,7 +10,3 @@ services:
       - ..:/workspace:cached
 
     command: sleep infinity
-
-    environment:
-      TZ: Asia/Tokyo
-      PYTHONPATH: /workspace
