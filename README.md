@@ -66,7 +66,7 @@ https://typescript-jp.gitbook.io/deep-dive/
 https://typescriptbook.jp/reference/values-types-variables/any
 
 
-# Pythonの実行
+# バックエンドの起動
 - `backend`ディレクトリの`main.py`を実行すると`FastAPI`のサンプルコードが実行される
 https://fastapi.tiangolo.com/ja/#_4
 ```
@@ -88,3 +88,38 @@ INFO:     Application startup complete.
 ![Image 6](images/6.png)
 - `localhost:8000/docs`を開くと`OpenAPI (Swagger)`が表示される
 ![Image 7](images/7.png)
+
+## 静的ファイルについて
+- `backend/static_files`にフロントエンドの表示に必要な静的ファイルを置くことができる  
+https://fastapi.tiangolo.com/ja/tutorial/static-files/
+- 本番ではReactをビルドしたファイル(HTMLやCSS, JavaScriptなど)のファイルをここに置く
+- サンプルファイルとして`static_files/index.html`と`static_files/fastapi-logo.png`を置いてある
+- バックエンドのFastAPIを起動したうえで[http://localhost:8000](http://localhost:8000)にアクセスすると`index.html`と`fastapi-logo.png`が読み込まれてブラウザ上に表示される
+- `api/v1/hello`からJSONを読み込むスクリプトも組み込んである  
+![Image 8](images/8.png)
+```
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <title>My test page</title>
+    <script>
+        fetch('api/v1/hello')
+            .then((response) => response.text())
+            .then((data) => {
+                const p = document.getElementById("json-data");
+                p.textContent = data;
+            });
+    </script>
+</head>
+
+<body>
+    <p>Hello World!!</p>
+    <img src="fastapi-logo.png" alt="FastAPI Logo" width="350">
+    <p>Fetched Data from 'api/v1/hello'</p>
+    <p id="json-data"></p> <!--The data read from 'api/v1/hello' is displayed in this 'p' tag.-->
+</body>
+
+</html>
+```
