@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <title>My test page</title>
+    <script>
+        fetch('api/v1/hello')
+            .then((response) => response.text())
+            .then((data) => {
+                const p = document.getElementById("json-data");
+                p.textContent = data;
+            });
+    </script>
+</head>
+
+<body>
+    <p>Hello World!!</p>
+    <img src="fastapi-logo.png" alt="FastAPI Logo" width="350">
+    <p>Fetched Data from 'api/v1/hello'</p>
+    <p id="json-data"></p> <!--The data read from 'api/v1/hello' is displayed in this 'p' tag.-->
+</body>
+
+</html>
