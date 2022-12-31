@@ -1,13 +1,11 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.staticfiles import StaticFiles
-from fastapi.security import HTTPBasic
 # from .utils.spa_staticfiles import SPAStaticFiles # For StaticFiles for SPA (React, Vue, etc.)
 from .schemas import ItemCreate
 
 
 app = FastAPI()
 
-security = HTTPBasic()
 
 db_items = {
     1: {"item_id": 1, "text": "item1"},
