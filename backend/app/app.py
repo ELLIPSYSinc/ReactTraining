@@ -13,7 +13,7 @@ db_items = {
 
 
 @app.get("/api/v1/hello")
-def read_root():
+def read_hello_world():
     return {"Hello": "World"}
 
 
