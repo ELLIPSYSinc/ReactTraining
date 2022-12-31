@@ -6,7 +6,6 @@ from .schemas import ItemCreate
 
 app = FastAPI()
 
-
 db_items = {
     1: {"item_id": 1, "text": "item1"},
     2: {"item_id": 2, "text": "item2"}
