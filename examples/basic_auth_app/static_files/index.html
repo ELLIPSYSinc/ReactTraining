@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <title>Hello World!!</title>
+    <script>
+        // Fetch data from 'api/v1/hello'
+        const getHelloWorld = async () => {
+            const response = await fetch('api/v1/hello'); // See https://developer.mozilla.org/ja/docs/Web/API/fetch
+            // JSON text to Javascript Object. See https://developer.mozilla.org/ja/docs/Learn/JavaScript/Objects/JSON
+            return await response.json();
+        };
+
+        // Fetch data from 'api/v1/me'
+        const getMe = async () => {
+            const response = await fetch('api/v1/me'); // See https://developer.mozilla.org/ja/docs/Web/API/fetch
+            // JSON text to Javascript Object. See https://developer.mozilla.org/ja/docs/Learn/JavaScript/Objects/JSON
+            return await response.json();
+        };
+
+        // Set main function called after loading.
+        document.addEventListener('DOMContentLoaded', () => {
+            (async () => {
+                const data = await getHelloWorld(); // Fetch data from backend API
+                const p = document.getElementById("hello-world-data"); // Get the <p> element which has "hello-world-data" id.
+                p.textContent = JSON.stringify(data); // Overwrite the <p> element text
+            })();
+            (async () => {
+                const data = await getMe(); // Fetch data from backend API
+                const p = document.getElementById("me"); // Get the <p> element which has "me" id.
+                p.textContent = JSON.stringify(data); // Overwrite the <p> element text
+            })();
+        });
+    </script>
+</head>
+
+<body>
+    <p>Hello World!!</p>
+    <img src="fastapi-logo.png" alt="FastAPI Logo" width="350">
+
+    <p>Fetched data from 'api/v1/hello'</p>
+    <p id="hello-world-data"></p> <!--The data read from 'api/v1/hello' is displayed in this 'p' tag.-->
+
+    <p>Fetched data from 'api/v1/me'</p>
+    <p id="me"></p> <!--The data read from 'api/v1/me' is displayed in this 'p' tag.-->
+</body>
+
+</html>
