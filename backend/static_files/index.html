@@ -15,7 +15,7 @@
         // Fetch item data from 'api/v1/items/${item_id}'
         const getItem = async (item_id) => {
             const response = await fetch(`api/v1/items/${item_id}`); // See https://developer.mozilla.org/ja/docs/Web/API/fetch
-            // JSON text to Javascript Object. See https://developer.mozilla.org/ja/docs/Learn/JavaScript/Objects/JSON
+            // JSON text to Javascript Object. See https://developer.mozilla.org/ja/docs/Web/API/Response/json
             return await response.json();
         };
 
@@ -27,12 +27,13 @@
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(newItem) // Javascript Object to JSON
+                body: JSON.stringify(newItem) // Javascript Object to JSON. See https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
             });
-            // JSON text to Javascript Object. See https://developer.mozilla.org/ja/docs/Learn/JavaScript/Objects/JSON
+            // JSON text to Javascript Object. See https://developer.mozilla.org/ja/docs/Web/API/Response/json
             return await response.json();
         };
 
+        // Set main function called after loading.
         document.addEventListener('DOMContentLoaded', () => {
             (async () => {
                 const data = await getHelloWorld(); // Fetch data from backend API
@@ -76,7 +77,7 @@
     </form>
 
     <p>Sent data to 'api/v1/items'</p>
-    <p id="item-data-sent"></p> <!--Here is the data you sent to 'api/v1/items/1'.-->
+    <p id="item-data-sent"></p> <!--Here is the data you sent to 'api/v1/items'.-->
 </body>
 
 </html>
