@@ -1,10 +1,13 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Depends
 from fastapi.staticfiles import StaticFiles
+from fastapi.security import HTTPBasic, HTTPBasicCredentials
 # from .utils.spa_staticfiles import SPAStaticFiles # For StaticFiles for SPA (React, Vue, etc.)
 from .schemas import ItemCreate
 
 
 app = FastAPI()
+
+security = HTTPBasic()
 
 db_items = {
     1: {"item_id": 1, "text": "item1"},
@@ -13,7 +16,9 @@ db_items = {
 
 
 @app.get("/api/v1/hello")
-def read_root():
+def read_root(credentials: HTTPBasicCredentials = Depends(security)):
+    if credentials.username != "aaa":
+        raise HTTPException(401, "Unauthorized")
     return {"Hello": "World"}
 
 
