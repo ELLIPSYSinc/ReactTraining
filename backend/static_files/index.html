@@ -3,22 +3,80 @@
 
 <head>
     <meta charset="utf-8">
-    <title>My test page</title>
+    <title>Hello World!!</title>
     <script>
-        fetch('api/v1/hello')
-            .then((response) => response.text())
-            .then((data) => {
-                const p = document.getElementById("json-data");
-                p.textContent = data;
+        // Fetch data from 'api/v1/hello'
+        const getHelloWorld = async () => {
+            const response = await fetch('api/v1/hello'); // See https://developer.mozilla.org/ja/docs/Web/API/fetch
+            // JSON text to Javascript Object. See https://developer.mozilla.org/ja/docs/Learn/JavaScript/Objects/JSON
+            return await response.json();
+        };
+
+        // Fetch item data from 'api/v1/items/${item_id}'
+        const getItem = async (item_id) => {
+            const response = await fetch(`api/v1/items/${item_id}`); // See https://developer.mozilla.org/ja/docs/Web/API/fetch
+            // JSON text to Javascript Object. See https://developer.mozilla.org/ja/docs/Learn/JavaScript/Objects/JSON
+            return await response.json();
+        };
+
+        // Send new item data to 'api/v1/items'
+        const postItem = async (newItem) => {
+            // See https://developer.mozilla.org/ja/docs/Web/API/fetch
+            const response = await fetch('api/v1/items', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newItem) // Javascript Object to JSON
             });
+            // JSON text to Javascript Object. See https://developer.mozilla.org/ja/docs/Learn/JavaScript/Objects/JSON
+            return await response.json();
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            (async () => {
+                const data = await getHelloWorld(); // Fetch data from backend API
+                const p = document.getElementById("hello-world-data"); // Get the <p> element which has "hello-world-data" id.
+                p.textContent = JSON.stringify(data); // Overwrite the <p> element text
+            })();
+
+            (async () => {
+                const data = await getItem(1); // Fetch item data from backend API
+                const p = document.getElementById("item-data"); // Get the <p> element which has "item-data" id.
+                p.textContent = JSON.stringify(data); // Overwrite the <p> element text
+            })();
+
+            const button = document.getElementById("submit-button"); // Get the <button> element which has "submit-button" id.
+            // Set the callback function for the button. This function will be run each time the button is clicked.
+            button.onclick = async () => {
+                const textFrom = document.getElementById("item-text"); // Get the <input> element which has "item-text" id.
+                const itemText = textFrom.value; // Get the text value of the <input> element
+                const data = await postItem({ text: itemText }); // Post new item data
+                const p = document.getElementById("item-data-sent"); // Get the <p> element which has "item-data-sent" id.
+                p.textContent = JSON.stringify(data); // Overwrite the <p> element text
+            };
+        });
     </script>
 </head>
 
 <body>
     <p>Hello World!!</p>
     <img src="fastapi-logo.png" alt="FastAPI Logo" width="350">
-    <p>Fetched Data from 'api/v1/hello'</p>
-    <p id="json-data"></p> <!--The data read from 'api/v1/hello' is displayed in this 'p' tag.-->
+
+    <p>Fetched data from 'api/v1/hello'</p>
+    <p id="hello-world-data"></p> <!--The data read from 'api/v1/hello' is displayed in this 'p' tag.-->
+
+    <p>Fetched data from 'api/v1/items/1'</p>
+    <p id="item-data"></p> <!--Here is the data from 'api/v1/items/1'.-->
+
+    <form>
+        <label for="item-text">Input new item text: </label>
+        <input type="text" id="item-text" />
+        <button type="button" id="submit-button">Submit</button>
+    </form>
+
+    <p>Sent data to 'api/v1/items'</p>
+    <p id="item-data-sent"></p> <!--Here is the data you sent to 'api/v1/items/1'.-->
 </body>
 
 </html>
