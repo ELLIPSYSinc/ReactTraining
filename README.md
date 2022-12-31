@@ -95,31 +95,6 @@ https://fastapi.tiangolo.com/ja/tutorial/static-files/
 - 本番ではReactをビルドしたファイル(HTMLやCSS, JavaScriptなど)のファイルをここに置く
 - サンプルファイルとして`static_files/index.html`と`static_files/fastapi-logo.png`を置いてある
 - バックエンドのFastAPIを起動したうえで[http://localhost:8000](http://localhost:8000)にアクセスすると`index.html`と`fastapi-logo.png`が読み込まれてブラウザ上に表示される
-- `api/v1/hello`からJSONを読み込むスクリプトも組み込んである  
+- `api/v1/hello`と`api/v1/items/1`からJSONを読み込むスクリプトも組み込んである  
+- フォームから`api/v1/items`にJSONをPOSTできる
 ![Image 8](images/8.png)
-```
-<!DOCTYPE html>
-<html lang="en-US">
-
-<head>
-    <meta charset="utf-8">
-    <title>My test page</title>
-    <script>
-        fetch('api/v1/hello')
-            .then((response) => response.text())
-            .then((data) => {
-                const p = document.getElementById("json-data");
-                p.textContent = data;
-            });
-    </script>
-</head>
-
-<body>
-    <p>Hello World!!</p>
-    <img src="fastapi-logo.png" alt="FastAPI Logo" width="350">
-    <p>Fetched Data from 'api/v1/hello'</p>
-    <p id="json-data"></p> <!--The data read from 'api/v1/hello' is displayed in this 'p' tag.-->
-</body>
-
-</html>
-```
