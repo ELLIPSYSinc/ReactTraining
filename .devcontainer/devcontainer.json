@@ -14,7 +14,7 @@
 		8000,
 		8080
 	],
-	"initializeCommand": "cp -n .devcontainer/.env.template .devcontainer/.env",
+	"initializeCommand": "./.devcontainer/initialize.sh",
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "./setup.sh"
 	// Configure tool-specific properties.
