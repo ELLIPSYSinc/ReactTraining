@@ -5,8 +5,33 @@ services:
     build:
       context: ..
       dockerfile: .devcontainer/Dockerfile
-
     volumes:
       - ..:/workspace:cached
-
     command: sleep infinity
+    environment:
+      MARIADB_DATABASE: ${MARIADB_DATABASE}
+      MARIADB_USER: ${MARIADB_USER}
+      MARIADB_PASSWORD: ${MARIADB_PASSWORD}
+
+  db:
+    # See https://hub.docker.com/_/mariadb
+    image: mariadb
+    restart: unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+      MARIADB_DATABASE: ${MARIADB_DATABASE}
+      MARIADB_USER: ${MARIADB_USER}
+      MARIADB_PASSWORD: ${MARIADB_PASSWORD}
+      TZ: Asia/Tokyo
+    volumes:
+      - react-training-db:/var/lib/mysql
+      - ../db/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d:ro
+
+  adminer:
+    image: adminer
+    restart: unless-stopped
+    network_mode: service:app
+
+volumes:
+  react-training-db:
+    name: "react-training-db"
