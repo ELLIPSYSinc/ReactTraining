@@ -1,4 +1,4 @@
-# Fast API Example with SQLite & SQLAlchemy (Async IO ver.)
+# Fast API Example with MariaDB & SQLAlchemy (Async IO ver.)
 This example based on https://fastapi.tiangolo.com/ja/tutorial/sql-databases/
 
 # How to Run
