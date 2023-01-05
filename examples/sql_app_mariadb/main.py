@@ -4,7 +4,7 @@
 # cd examples/sql_app_async
 # python main.py
 
-# Access http://localhost:8000/docs from browser after starting the server.
+# Access http://localhost:8000/docs from browser after starting up the server.
 
 import uvicorn
 
